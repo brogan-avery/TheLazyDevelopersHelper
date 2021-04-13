@@ -9,14 +9,7 @@
 
 #include "DevTool0.hpp"
 
-
 DevTool0::DevTool0(){} ///constructor
-
-void DevTool0::execute(){
-    cout << "Going into selected Dev Tool..." << endl;
-}
-
-// ====== METHODS =========
 
 // =============== A - C ===============
 void DevTool0::addDefinition(string term, string definition){
@@ -101,6 +94,15 @@ void DevTool0::createClassHeaderFile(string fileName){
     }
     nonDefaultConstructor = nonDefaultConstructor + ")";
     
+    writeFile << "/*************************************************************** \n Class Name: " << className << endl;
+    writeFile << "* Author: Brogan Avery " << endl;
+    writeFile << "* Created: 2021-00-00" << endl;
+    writeFile << "* File Description:" << endl;
+    writeFile << "***************************************************************/ \n" << endl;
+    writeFile << "#ifndef " << className << "_hpp" << endl;
+    writeFile << "#define" << className << "_hpp\n" << endl;
+    writeFile << "#include <stdio.h> \n#include <string> \n#include <iostream> \n#include <vector> \n#include <iomanip> \n#include <fstream> \n#include<unistd.h> /// for unix sleep \nusing namespace std;\n" << endl;
+    
     writeFile << "/// class declaration " << endl; /// writes a comment
     writeFile << "class " << className << "{" << endl; /// writes the class name
     
@@ -171,6 +173,8 @@ void DevTool0::createClassHeaderFile(string fileName){
     writeFile << "string " << className << "::toString(){" << endl; /// write to string method
     writeFile << "return \"outString\";" << endl;
     writeFile << "} \n" << endl;
+    
+    writeFile << "#endif /* " << className << "_hpp */" << endl;
     
     writeFile.close(); /// Close the file
     cout << "Creating File..." << endl;

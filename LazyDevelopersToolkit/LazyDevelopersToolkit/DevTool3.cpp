@@ -12,7 +12,7 @@
 
 DevTool3::DevTool3(){} ///constructor
 
-void DevTool3::execute(){
+void DevTool3::menu3(){
     string userInput = " ";
     cout << "\n* Project Management * " << endl;
     

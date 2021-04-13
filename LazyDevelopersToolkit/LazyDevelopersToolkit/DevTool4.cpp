@@ -12,7 +12,7 @@
 
 DevTool4::DevTool4(){} ///constructor
 
-void DevTool4::execute(){
+void DevTool4::menu4(){
     string userInput = " ";
     cout << "\n* Project Testing * " << endl;
     

@@ -21,10 +21,10 @@
 
 using namespace std;
 
-class DevTool6:public DevTool0{
+class DevTool6:virtual public DevTool0{
     public:
         DevTool6(); ///constructor
-        void execute();
+        void menu6();
         void displayDictionary();
         void displayWebLinks();
         void openDocumentation();

@@ -4,7 +4,7 @@
 * Created :
  
  
-* File Description : This class creates developer tool objects
+* File Description :
 ***************************************************************/
 
 #ifndef DevTool0_hpp
@@ -22,7 +22,6 @@ using namespace std;
 class DevTool0{
     public:
         DevTool0(); ///constructor
-        virtual void execute();
         ofstream createFile(string); ///string fileName
         void createClassHeaderFile(string); /// string fileName
         string capitalizeWord(string); /// string word to capitalize

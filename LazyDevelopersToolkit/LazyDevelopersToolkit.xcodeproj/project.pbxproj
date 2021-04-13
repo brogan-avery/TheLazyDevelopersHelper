@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0284FF0026234ECF00AB125E /* DevTool7.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0284FEFE26234ECF00AB125E /* DevTool7.cpp */; };
 		02D68E4126169ABC00CAD630 /* DevTool0.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02D68E3F26169ABC00CAD630 /* DevTool0.cpp */; };
 		02D68E472618F1F300CAD630 /* DevTool2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02D68E452618F1F300CAD630 /* DevTool2.cpp */; };
 		02D68E4B26190EDE00CAD630 /* DevTool1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02D68E4926190EDE00CAD630 /* DevTool1.cpp */; };
@@ -32,6 +33,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0284FEFE26234ECF00AB125E /* DevTool7.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DevTool7.cpp; sourceTree = "<group>"; };
+		0284FEFF26234ECF00AB125E /* DevTool7.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DevTool7.hpp; sourceTree = "<group>"; };
 		02D68E3F26169ABC00CAD630 /* DevTool0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DevTool0.cpp; sourceTree = "<group>"; };
 		02D68E4026169ABC00CAD630 /* DevTool0.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DevTool0.hpp; sourceTree = "<group>"; };
 		02D68E452618F1F300CAD630 /* DevTool2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DevTool2.cpp; sourceTree = "<group>"; };
@@ -101,6 +104,8 @@
 				02D68E5A261932CD00CAD630 /* Tests.cpp */,
 				02F8D33E2619656100316E0A /* Project.cpp */,
 				02F8D33F2619656100316E0A /* Project.hpp */,
+				0284FEFE26234ECF00AB125E /* DevTool7.cpp */,
+				0284FEFF26234ECF00AB125E /* DevTool7.hpp */,
 			);
 			path = LazyDevelopersToolkit;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				02D68E5B261932CE00CAD630 /* Tests.cpp in Sources */,
 				02D68E4B26190EDE00CAD630 /* DevTool1.cpp in Sources */,
 				02D68E4F26190EF200CAD630 /* DevTool3.cpp in Sources */,
+				0284FF0026234ECF00AB125E /* DevTool7.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

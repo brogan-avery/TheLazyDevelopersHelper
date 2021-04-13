@@ -12,7 +12,7 @@
 
 DevTool2::DevTool2(){} ///constructor
 
-void DevTool2::execute(){
+void DevTool2::menu2(){
     string userInput = " ";
     cout << "\n* Arduino Based Tools * " << endl;
     
@@ -57,19 +57,19 @@ void DevTool2::doNotDisturb(){
     cout << "Going back to Previous Menu Screen..." << endl;
 }
 
-void DevTool2::greenLED(){
+void DevTool2::greenLED(){ /// uses the Arduino CLI to run an Arduino file that turns this light on
     system("/Users/brogan/bin/arduino-cli compile -b arduino:avr:mega /Users/brogan/Desktop/C++II/assignments/LazyDevelopersToolkit/LazyDevelopersToolkit/ArduinoScripts/greenLED/greenLED.ino");
     system("/Users/brogan/bin/arduino-cli upload -p /dev/cu.usbmodem14201 -b arduino:avr:mega /Users/brogan/Desktop/C++II/assignments/LazyDevelopersToolkit/LazyDevelopersToolkit/ArduinoScripts/greenLED/greenLED.ino");
     
 }
 
-void DevTool2::redLED(){
+void DevTool2::redLED(){ /// uses the Arduino CLI to run an Arduino  file that turns this light on
     system("/Users/brogan/bin/arduino-cli compile -b arduino:avr:mega /Users/brogan/Desktop/C++II/assignments/LazyDevelopersToolkit/LazyDevelopersToolkit/ArduinoScripts/redLED/redLED.ino");
     system("/Users/brogan/bin/arduino-cli upload -p /dev/cu.usbmodem14201 -b arduino:avr:mega /Users/brogan/Desktop/C++II/assignments/LazyDevelopersToolkit/LazyDevelopersToolkit/ArduinoScripts/redLED/redLED.ino");
     
 }
 
-void DevTool2::terminateArduino(){
+void DevTool2::terminateArduino(){ /// uses the Arduino CLI to run an empty Arduino file that turns any lights that are on off
     system("/Users/brogan/bin/arduino-cli compile -b arduino:avr:mega /Users/brogan/Desktop/C++II/assignments/LazyDevelopersToolkit/LazyDevelopersToolkit/ArduinoScripts/terminate/terminate.ino");
     system("/Users/brogan/bin/arduino-cli upload -p /dev/cu.usbmodem14201 -b arduino:avr:mega /Users/brogan/Desktop/C++II/assignments/LazyDevelopersToolkit/LazyDevelopersToolkit/ArduinoScripts/terminate/terminate.ino");
     

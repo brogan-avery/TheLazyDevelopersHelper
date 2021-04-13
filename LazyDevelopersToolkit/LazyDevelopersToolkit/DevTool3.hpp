@@ -17,15 +17,15 @@
 #include <iomanip>
 #include<cstdlib>
 #include "DevTool0.hpp"
-//#include <fstream>
 
 using namespace std;
 
-class DevTool3:public DevTool0{
+class DevTool3:virtual public DevTool0{
     public:
         DevTool3(); ///constructor
-        void execute();
+        void menu3();
         void startNewProject();
+        void wireFrameTool();
 };
 
 #endif /* DevTool3_hpp */

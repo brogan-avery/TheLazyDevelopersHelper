@@ -21,10 +21,10 @@
 
 using namespace std;
 
-class DevTool4:public DevTool0{
+class DevTool4:virtual public DevTool0{
     public:
         DevTool4(); ///constructor
-        void execute();
+        void menu4();
 };
 
 #endif /* DevTool4_hpp */

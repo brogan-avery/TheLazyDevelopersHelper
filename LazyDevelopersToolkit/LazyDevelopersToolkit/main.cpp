@@ -22,27 +22,28 @@
 #include "DevTool4.hpp"
 #include "DevTool5.hpp"
 #include "DevTool6.hpp"
-
+#include "DevTool7.hpp"
 
 int main() {
 //PROJECT CODE SECTION
     string userInput = " ";
     /// create an object for each developer tool that is listed with an associated number
-    DevTool0 devTool0;
+    DevTool0 devTool0; ///base tool
     DevTool1 devTool1;
     DevTool2 devTool2;
     DevTool3 devTool3;
     DevTool4 devTool4;
     DevTool5 devTool5;
     DevTool6 devTool6;
+    DevTool7 myDevTool; /// inherits from all of the other classes to make it easier to access from one place if user does not want to go through many menu screens
     
-    devTool3.startNewProject();
+    myDevTool.playCandyLand();
     
-    cout << "* * *  Welcome to The Lazy Developer's Toolkit  * * *\n" << endl;
-    cout << "Basic Site Description: etc....\n    etc....\n    etc....\n" << endl;
-    cout << "General Instructions for the User to Use the Program: etc....\n    etc....\n    etc....\n" << endl;
-
-    cout << "Developer Tools Dashboard:" << endl;
+//    cout << "* * *  Welcome to The Lazy Developer's Toolkit  * * *\n" << endl;
+//    cout << "Basic Site Description: etc....\n    etc....\n    etc....\n" << endl;
+//    cout << "General Instructions for the User to Use the Program: etc....\n    etc....\n    etc....\n" << endl;
+//
+//    cout << "Developer Tools Dashboard:" << endl;
 //    while (userInput != "7") {
 //        cout << "  Select number associated with a developer tool" << endl;
 //        cout << "     1. Skills Builder" << endl;

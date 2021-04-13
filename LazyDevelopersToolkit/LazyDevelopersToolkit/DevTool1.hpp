@@ -4,7 +4,7 @@
 * Created :
  
  
-* File Description : This class creates developer tool objects
+* File Description : 
 ***************************************************************/
 
 #ifndef DevTool1_hpp
@@ -17,16 +17,14 @@
 #include <iomanip>
 #include<cstdlib>
 #include "DevTool0.hpp"
-//#include <fstream>
 
 using namespace std;
 
-class DevTool1:public DevTool0{
+class DevTool1:virtual public DevTool0{
     public:
         DevTool1(); ///constructor
-        void execute();
+        void menu1();
         void displayProblems();
-        void startQuiz();
 };
 
 #endif /* DevTool1_hpp */

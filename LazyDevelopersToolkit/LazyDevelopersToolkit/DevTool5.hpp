@@ -16,18 +16,21 @@
 #include <iomanip>
 #include<cstdlib>
 #include "DevTool0.hpp"
-//#include <fstream>
+#include <array>
 
 using namespace std;
 
-class DevTool5:public DevTool0{
+class DevTool5:virtual public DevTool0{
     public:
         DevTool5(); ///constructor
-        void execute();
+        void menu5();
         void listSongs();
         void listGames();
         void tellJoke();
         void listAnimals();
+        void playHangman();
+        void playCandyLand();
+        string drawCard();
 };
 
 #endif // DEVTOOL5_HPP

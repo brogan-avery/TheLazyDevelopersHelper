@@ -12,7 +12,7 @@
 
 DevTool6::DevTool6(){} ///constructor
 
-void DevTool6::execute(){
+void DevTool6::menu6(){
     string userInput = " ";
     cout << "\n* Other Resources * " << endl;
     

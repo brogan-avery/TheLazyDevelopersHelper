@@ -4,7 +4,7 @@
 * Created :
  
  
-* File Description : This class creates developer tool objects
+* File Description : This class lets the user interact with Arduino based tools.
 ***************************************************************/
 
 #ifndef DevTool2_hpp
@@ -17,14 +17,13 @@
 #include <iomanip>
 #include<cstdlib>
 #include "DevTool0.hpp"
-//#include <fstream>
 
 using namespace std;
 
-class DevTool2:public DevTool0{
+class DevTool2:virtual public DevTool0{
     public:
         DevTool2(); ///constructor
-        void execute();
+        void menu2();
         void doNotDisturb();
         void redLED();
         void greenLED();
