@@ -17,7 +17,7 @@ void DevTool3::menu3(){
     while (userInput != "3") {
         cout << "  Select number " << endl;
         cout << "     1. Generate Project Management Guide For New Project" << endl;
-        cout << "     2. View Your Projects" << endl;
+        cout << "     2. View Your Project Guides" << endl;
         cout << "     3. Return To Developer Tools Dashboard" << endl;
 
         cout << "  Enter Selection: " << endl;
@@ -26,6 +26,10 @@ void DevTool3::menu3(){
 
         if (userInput == "1"){
             startNewProject();
+        }
+        
+        if (userInput == "2"){
+            viewProjectGuide();
         }
     }
     cout << "Going back to Dashboard..." << endl;
@@ -241,11 +245,14 @@ void DevTool3::startNewProject(){
     
     /// adds the new project title to a file that is a list of all the project titles that the user has created
     appendLineToEOF("projectObjects.txt", newProject.getTitle());
+    
+    cout << "New Project Created.\n" << endl;
 }
 
 /// function that lets user select which product management guide they want to view
 void DevTool3::viewProjectGuide(){
     string userInput = " ";
+    string continueAfterWarning = " ";
     vector<string> projectTitles = readFile("projectObjects.txt");
     
     ///displays project names from the file of project names for the user to select from
@@ -262,14 +269,17 @@ void DevTool3::viewProjectGuide(){
         
         getline(cin, userInput);
         
-        while (userInput != "N") {
-        if (userInput != "0"){
+        /// because there is now way to return this is labeled as a beta feature
+        continueAfterWarning = " ";
+        while (continueAfterWarning != "N") {
+        if (continueAfterWarning != "N"){
             cout << "*** WARNING *** \nThis feature is still in Beta Testing. Continuing will require you to restart this program to use any other features. \n Do you wish to continue? (Y/N)" << endl;
-            userInput = " ";
+            continueAfterWarning = " ";
             
-            getline(cin, userInput);
+            getline(cin, continueAfterWarning);
         }
-            if (userInput == "Y" || userInput == "y"){
+           continueAfterWarning = capitalizeWord(continueAfterWarning);
+            if (continueAfterWarning == "Y"){
         
         /// gets the name of the project that the user selected
         string projectTitle = projectTitles[stoi(userInput)-1];
@@ -502,6 +512,7 @@ void DevTool3::stringifyHtml(Project projectToView){
     
     /// starts a server and displays all of the body string text that was just smooshed together from the HTML file and the project object's attributes
     cout << "Starting Server" << endl;
+    system("open http://localhost:8080/"); /// opens to the page where the sever directed to
     httplib::Server svr;
     svr.Get("/", [](const httplib::Request & /*req*/, httplib::Response &res) {
         res.set_content(body.str(), "text/html");
@@ -509,6 +520,3 @@ void DevTool3::stringifyHtml(Project projectToView){
     svr.listen("localhost", 8080);
     
 }
-
-
-

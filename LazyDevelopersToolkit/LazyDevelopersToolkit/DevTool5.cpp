@@ -69,37 +69,38 @@ void DevTool5::listSongs(){
         if (userInput == "1"){
             if (system(NULL)) puts ("Starting Music ...\n");
             else exit (EXIT_FAILURE);
-            system ("open /Users/brogan/Desktop/C++II/assignments/theLazyDeveloperTool/theLazyDeveloperTool/Audio/chillTechno.mp3");
+            system ("open /Users/brogan/Desktop/C++II/assignments/LazyDevelopersToolkit/LazyDevelopersToolkit/AudioFiles/chillTechno.mp3");
         }
 
         if (userInput == "2"){
             if (system(NULL)) puts ("Starting Music ...\n");
             else exit (EXIT_FAILURE);
-            system ("open /Users/brogan/Desktop/C++II/assignments/theLazyDeveloperTool/theLazyDeveloperTool/Audio/DeepMeditation.mp3");
+            system ("open /Users/brogan/Desktop/C++II/assignments/LazyDevelopersToolkit/LazyDevelopersToolkit/AudioFiles/DeepMeditation.mp3");
         }
         
         if (userInput == "3"){
             if (system(NULL)) puts ("Starting Music ...\n");
             else exit (EXIT_FAILURE);
-            system ("open /Users/brogan/Desktop/C++II/assignments/theLazyDeveloperTool/theLazyDeveloperTool/Audio/ElvenForestHarps.mp3");
+            system ("open /Users/brogan/Desktop/C++II/assignments/LazyDevelopersToolkit/LazyDevelopersToolkit/AudioFiles/ElvenForestHarps.mp3");
         }
 
         if (userInput == "4"){
             if (system(NULL)) puts ("Starting Music ...\n");
             else exit (EXIT_FAILURE);
-            system ("open /Users/brogan/Desktop/C++II/assignments/theLazyDeveloperTool/theLazyDeveloperTool/Audio/HealingWaters.mp3");
+            system ("open /Users/brogan/Desktop/C++II/assignments/LazyDevelopersToolkit/LazyDevelopersToolkit/AudioFiles/HealingWaters.mp3");
         }
         
         if (userInput == "5"){
             if (system(NULL)) puts ("Starting Music ...\n");
             else exit (EXIT_FAILURE);
-            system ("open /Users/brogan/Desktop/C++II/assignments/theLazyDeveloperTool/theLazyDeveloperTool/Audio/RelaxingGreenNature.mp3");
+            system ("open /Users/brogan/Desktop/C++II/assignments/LazyDevelopersToolkit/LazyDevelopersToolkit/AudioFiles/RelaxingGreenNature.mp3");
+            
         }
 
         if (userInput == "6"){
             if (system(NULL)) puts ("Starting Music ...\n");
             else exit (EXIT_FAILURE);
-            system ("open /Users/brogan/Desktop/C++II/assignments/theLazyDeveloperTool/theLazyDeveloperTool/Audio/Tranquility.mp3");
+            system ("open /Users/brogan/Desktop/C++II/assignments/LazyDevelopersToolkit/LazyDevelopersToolkit/AudioFiles/Tranquility.mp3");
         }
     }
     cout << "Going back to Previous Menu..." << endl;
@@ -164,7 +165,7 @@ void DevTool5::tellJoke(){
     textToSpeech(lines[randomLineNum + 1]);
 }
 
-/// lets user choose a simple game to play, play till you win or you must restart the program. There are no losers here!!!
+/// lets user choose a simple game to play
 void DevTool5::listGames(){
     string userInput = " ";
     cout << "\n* GAME LIST * " << endl;
@@ -351,10 +352,15 @@ void DevTool5::playCandyLand(){ /// I totally cannot remember how to play this g
     
     /// start game
     cout << " * CandyLand *\n" << endl;
+    sleep(1);
+    cout << "To Play the game, you will draw a card and move to the next color square on the game board that matches the color of the square on the card you draw each time. If you get stuck in a hazard, you may have to move back." << endl;
+    sleep(4);
     
     while (gameOver != true){
         string userInput = " ";
         cout << "Game Board: " << endl;
+        cout << "Square#  SquareColor  YourLocation  Hazards" << endl;
+        cout << " -------------------------------------------" << endl;
         
         ///display current board layout
         for (int i = 0; i < board.size(); i++){
@@ -364,7 +370,7 @@ void DevTool5::playCandyLand(){ /// I totally cannot remember how to play this g
             else{
                 board[i].you = " ";
             }
-            cout << "Sqr " << i+1 << ": ["<< " { " << board[i].color << " }"  << " { " << board[i].you << " } " << " { " << board[i].hazard << " } "  << "]" << endl;
+            cout << "Sqr " << i+1 << ": ["<< " { " << board[i].color << " }   "  << " { " << board[i].you << " } " << "   { " << board[i].hazard << " } "  << "]" << endl;
         }
         sleep(2);
 
@@ -413,11 +419,10 @@ void DevTool5::playCandyLand(){ /// I totally cannot remember how to play this g
             numMoves = numMoves + NUM_COLORS;
         }
         yourPos = yourPos + numMoves;
-        cout << numMoves << "    " << yourPos << endl;
         onColor = board[yourPos].color;
         
         /// handles landing on a spot with a hazard
-        if (board[yourPos].hazard != " "){
+        if (board[yourPos].hazard != " " && gameOver == false){
             cout << " OH NO. YOU RAN INTO A HAZARD.\n" << endl;
             sleep(1);
             
@@ -446,9 +451,14 @@ void DevTool5::playCandyLand(){ /// I totally cannot remember how to play this g
         if (yourPos >= NUM_SPACES){
             gameOver = true;
         }
+        
+        if (gameOver == true) {
+            break;
+        }
     }
     
-    cout << "You finished the game!" << endl;
+    cout << "You finished the game!\n" << endl;
+    sleep(1);
 }
 
 /// helper function of Candy Land to draw a random card with a random color based off of a random number

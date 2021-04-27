@@ -21,7 +21,7 @@ int main() {
     
     cout << "* * *  Welcome to The Lazy Developer's Toolkit  * * *\n" << endl;
     sleep(1);
-    cout << "If you need help or instructions for this product, navigate to the product documentation by entering 6 to be redirected to the the product resources. Then select 3 in that menu screen to view the product documentation and user manual.\n" << endl;
+    cout << "If you need help or instructions for this product, navigate to the product documentation by entering 6 to be redirected to the the Product Resources. Then select 3 in that menu screen to view the product documentation and user manual.\n" << endl;
     sleep(1);
     
     /// basic navigation menu to select a tool from the dashboard and go to the main menu screen for that tool
