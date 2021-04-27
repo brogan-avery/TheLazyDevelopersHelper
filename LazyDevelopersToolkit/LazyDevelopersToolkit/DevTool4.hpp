@@ -1,10 +1,7 @@
 /**************************************************************
 * File Title: Dev Tool 4 Class Header
 * Author: Brogan Avery
-* Created :
- 
- 
-* File Description : This class creates developer tool objects
+* Created : 2021-04-01
 ***************************************************************/
 
 #ifndef DevTool4_hpp

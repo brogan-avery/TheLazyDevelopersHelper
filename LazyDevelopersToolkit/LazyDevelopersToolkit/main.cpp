@@ -6,88 +6,65 @@
 * Course: CIS 164- Advanced C++
 * OS: macOS Catalina
 * IDE: Xcode
-* Description :
- 
- 
+* Description : This app lets Developers select from a variety of tools that they can use with other projects, to help manage projects, or to help make their life as a developer easier and more efficient.
 * Copyright : This is my own original work  based on specifications issued by the course instructor
 * Academic Honesty: I attest that this is my original work.
 * I have not used unauthorized source code, either modified or
 * unmodified. I have not given other fellow student(s) access
 * to my program.
 ***************************************************************/
-#include "DevTool0.hpp"
-#include "DevTool1.hpp"
-#include "DevTool2.hpp"
-#include "DevTool3.hpp"
-#include "DevTool4.hpp"
-#include "DevTool5.hpp"
-#include "DevTool6.hpp"
 #include "DevTool7.hpp"
 
 int main() {
-//PROJECT CODE SECTION
     string userInput = " ";
-    /// create an object for each developer tool that is listed with an associated number
-    DevTool0 devTool0; ///base tool
-    DevTool1 devTool1;
-    DevTool2 devTool2;
-    DevTool3 devTool3;
-    DevTool4 devTool4;
-    DevTool5 devTool5;
-    DevTool6 devTool6;
-    DevTool7 myDevTool; /// inherits from all of the other classes to make it easier to access from one place if user does not want to go through many menu screens
+    DevTool7 myDevTool; /// inherits from all of the other classes to make it easier to access from one place, especially if user does not want to go through many menu screens]
     
-    myDevTool.playCandyLand();
+    cout << "* * *  Welcome to The Lazy Developer's Toolkit  * * *\n" << endl;
+    sleep(1);
+    cout << "If you need help or instructions for this product, navigate to the product documentation by entering 6 to be redirected to the the product resources. Then select 3 in that menu screen to view the product documentation and user manual.\n" << endl;
+    sleep(1);
     
-//    cout << "* * *  Welcome to The Lazy Developer's Toolkit  * * *\n" << endl;
-//    cout << "Basic Site Description: etc....\n    etc....\n    etc....\n" << endl;
-//    cout << "General Instructions for the User to Use the Program: etc....\n    etc....\n    etc....\n" << endl;
-//
-//    cout << "Developer Tools Dashboard:" << endl;
-//    while (userInput != "7") {
-//        cout << "  Select number associated with a developer tool" << endl;
-//        cout << "     1. Skills Builder" << endl;
-//        cout << "     2. Arduino Based Tools" << endl;
-//        cout << "     3. Project Management" << endl;
-//        cout << "     4. Automated Project Testing" << endl;
-//        cout << "     5. Relaxation Management" << endl;
-//        cout << "     6. View Other Resources" << endl;
-//        cout << "     7. Exit Program" << endl;
-//
-//        cout << "  Enter Selection: ";
-//        cin >> userInput;
-////
-//        if (userInput == "1"){
-//            devTool1.execute();
-//        }
-//
-//        if (userInput == "2"){
-//            devTool2.execute();
-//        }
-//
-//        if (userInput == "3"){
-//            devTool3.execute();
-//        }
-//
-//        if (userInput == "4"){
-//            devTool4.execute();
-//        }
-//
-//        if (userInput == "5"){
-//            devTool5.execute();
-//        }
-//
-//        if (userInput == "6"){
-//            devTool6.execute();
-//        }
-//    }
-//    cout << "goodbye" << endl;
+    /// basic navigation menu to select a tool from the dashboard and go to the main menu screen for that tool
+    cout << "Developer Tools Dashboard:" << endl;
+    while (userInput != "7") {
+        cout << "  Select number associated with a developer tool" << endl;
+        cout << "     1. Skills Builder" << endl;
+        cout << "     2. Arduino Based Tools" << endl;
+        cout << "     3. Project Management" << endl;
+        cout << "     4. Automated Project Testing" << endl;
+        cout << "     5. Relaxation Management" << endl;
+        cout << "     6. View Other Resources" << endl;
+        cout << "     7. Exit Program" << endl;
 
-    
-    
-// PLAYGROUND / TESTING SECTION
+        cout << "  Enter Selection: ";
+        
+        getline(cin, userInput);
 
+        if (userInput == "1"){
+            myDevTool.menu1();
+        }
 
+        if (userInput == "2"){
+            myDevTool.menu2();
+        }
+
+        if (userInput == "3"){
+            myDevTool.menu3();
+        }
+
+        if (userInput == "4"){
+            myDevTool.menu4();
+        }
+
+        if (userInput == "5"){
+            myDevTool.menu5();
+        }
+
+        if (userInput == "6"){
+            myDevTool.menu6();
+        }
+    }
+    cout << "goodbye" << endl;
 
     return 0;
 }

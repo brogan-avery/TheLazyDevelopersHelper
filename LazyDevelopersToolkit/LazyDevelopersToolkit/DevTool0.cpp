@@ -1,10 +1,8 @@
 /**************************************************************
 * File Title: Dev Tool  0 Class Body
 * Author: Brogan Avery
-* Created :
- 
- 
-* File Description :
+* Created : 2021-04-01
+* File Description : This is meant to act as a base class for short cut functions for common actions preformed in C++ such as file IO, etc
 ***************************************************************/
 
 #include "DevTool0.hpp"
@@ -12,17 +10,21 @@
 DevTool0::DevTool0(){} ///constructor
 
 // =============== A - C ===============
+///add a work to the Dev Tool Dictionary
 void DevTool0::addDefinition(string term, string definition){
-    appendLineToEOF("Dictionary.csv", term + "," + definition);
+    appendLineToEOF("Dictionary.txt", term + "\n" + definition);
 }
+
+/// add a website link to a file with other links to useful resources like tutorials, gitHub links, etc
 void DevTool0::addWebLink(string title, string link){
     appendLineToEOF("WebLinks.csv", title + "," + link);
 }
+
+/// makes a quick and cleaner looking way to add a line to the end of an existing file
 void DevTool0::appendLineToEOF(string fileName, string text){
+    /// takes lines from existing file, stores them in a vector, then re writes file with the new line
     vector<string> lines = readFile(fileName);
-    ///ofstream fileWriter = createFile(fileName);
     ofstream fileWriter(fileName);
-    
     for (string i : lines){
         fileWriter << i << "\n";
     }
@@ -30,6 +32,8 @@ void DevTool0::appendLineToEOF(string fileName, string text){
     
     fileWriter.close();
 }
+
+/// simple function to capitalize a word
 string DevTool0::capitalizeWord(string text) {
     for (int x = 0; x < text.length(); x++)
     {
@@ -44,12 +48,15 @@ string DevTool0::capitalizeWord(string text) {
     }
     return text;
 }
-///TODO: void closeFile(string??){}
+
+/// simple function to create a new file
 ofstream DevTool0::createFile(string fileName){
     ofstream fileWriter(fileName);
     fileWriter.close();
     return fileWriter;
 }
+
+/// function that  creates a new (basic or generic) class header file to save time typing
 void DevTool0::createClassHeaderFile(string fileName){
     string className = " ";
     string varName = " ";
@@ -178,19 +185,27 @@ void DevTool0::createClassHeaderFile(string fileName){
     
     writeFile.close(); /// Close the file
     cout << "Creating File..." << endl;
+    sleep(1);
+    
+    /// this just shows the contents of the file that was created for quick copy and paste if wanted instead
+    cout << "Here is the content of the file you just created: " << endl;
+    sleep(1);
+    vector<string> lines = readFile(fileName);
+    for (auto line : lines){
+        cout << line << endl;
+    }
 }
 
 // =============== D - F ===============
 
 // =============== G - I ===============
+/// function that gets the number of lines in a file
 int DevTool0::getFileLineCount(string fileName){
     string line = " "; ///each line's text
     int lineCount = 0; /// number of lines of text in file
-    
     ifstream fileReader(fileName, ios::in); ///open file to READ from
-           
-           /// gets the number of lines of text in the file
-    while(getline(fileReader,line)){
+    
+    while(getline(fileReader,line)){/// gets the number of lines of text in the file
         lineCount++;
     }
         fileReader.close(); ///close file
@@ -198,36 +213,48 @@ int DevTool0::getFileLineCount(string fileName){
 }
 
 // =============== J - L ===============
-///TODO: string lookUp(string term){}
+/// function used to look up the definitions of terms that have been added to the Dev Tool Dictionary
+void DevTool0::lookUp(string term){
+    vector<string> lines = readFile("Dictionary.txt"); /// gathers terms in one line and defs in the next into an a vector
+    string msg = "Term Not Found";
+    
+    /// searches for a matching term to the param val, if found returns the definition as the msg value
+    for (int i = 0, j = 1; i< lines.size(); i+=2, j+=2){
+        if ( term ==  lines[i]){
+            msg = lines[j];
+        }
+    }
+    cout << msg <<endl; ///if not found returns "not found" msg
+}
 
 // =============== M - O ===============
-///TODO:void openWebPage(string url){
-    //system ("open https://dwheeler.com/essays/open-files-urls.html#:~:text=Nearly%20all%20operating%20systems%20have,invoke%20from%20almost%20any%20language.");
-///}
+
 // =============== P - R ===============
+///function that reads lines in from a file
 vector<string> DevTool0::readFile(string fileName){
     string line = " "; ///each line's text
     ifstream fileReader(fileName, ios::in); ///open file to READ from
     
-    int lineCount = getFileLineCount(fileName);
+    int lineCount = getFileLineCount(fileName); ///gets line count from other function
     
     vector<string> lines;
     
-    for( int i = 0; i < lineCount; i++){
+    for( int i = 0; i < lineCount; i++){ /// stores each line's text to lines vector
         getline(fileReader, line);
         lines.push_back(line);
     }
-    
-    return lines;
+    return lines; /// returns lines in a vector
 }
 
 // =============== S - U ===============
+
+///function that uses the system command function to turn the parameter value into speech
 void DevTool0::textToSpeech(string text){
-    createFile("tempTextToSpeach.txt");
-    appendLineToEOF("tempTextToSpeach.txt", text);
-    string toCLString = "say " + text;
-    if (system(NULL)) puts ("Ok");
-        else exit (EXIT_FAILURE);
-   system("say -f /Users/brogan/Library/Developer/Xcode/DerivedData/LazyDevelopersToolkit-eizgswzshjlxxvebouikjvtdbczc/Build/Products/Debug/tempTextToSpeach.txt");
+    /// stores param text to a file
+    createFile("tempTextToSpeech.txt");
+    appendLineToEOF("tempTextToSpeech.txt", text);
+    string toClString = "say " + text;
+    /// calls command to read out loud what is written on that text file (this would need to be changed to fit someone else's system)
+    system("say -f /Users/brogan/Library/Developer/Xcode/DerivedData/LazyDevelopersToolkit-eizgswzshjlxxvebouikjvtdbczc/Build/Products/Debug/tempTextToSpeech.txt");
 }
 // =============== V - Z ===============

@@ -1,10 +1,7 @@
 /**************************************************************
 * File Title: Dev Tool 3 Class Header
 * Author: Brogan Avery
-* Created :
- 
- 
-* File Description : This class creates developer tool objects
+* Created : 2021-04-01
 ***************************************************************/
 
 #ifndef DevTool3_hpp
@@ -17,8 +14,11 @@
 #include <iomanip>
 #include<cstdlib>
 #include "DevTool0.hpp"
+#include "httplib.h"
+#include "Project.hpp"
 
 using namespace std;
+
 
 class DevTool3:virtual public DevTool0{
     public:
@@ -26,6 +26,8 @@ class DevTool3:virtual public DevTool0{
         void menu3();
         void startNewProject();
         void wireFrameTool();
+        void stringifyHtml(Project);
+        void viewProjectGuide();
 };
 
 #endif /* DevTool3_hpp */

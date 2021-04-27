@@ -1,10 +1,7 @@
 /**************************************************************
 * File Title: Dev Tool 2 Class Header
 * Author: Brogan Avery
-* Created :
- 
- 
-* File Description : This class lets the user interact with Arduino based tools.
+* Created : 2021-04-01
 ***************************************************************/
 
 #ifndef DevTool2_hpp

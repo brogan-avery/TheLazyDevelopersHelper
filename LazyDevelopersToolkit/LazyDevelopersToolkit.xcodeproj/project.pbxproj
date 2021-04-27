@@ -14,7 +14,6 @@
 		02D68E4F26190EF200CAD630 /* DevTool3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02D68E4D26190EF200CAD630 /* DevTool3.cpp */; };
 		02D68E5326190F0900CAD630 /* DevTool4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02D68E5126190F0900CAD630 /* DevTool4.cpp */; };
 		02D68E5726190F2000CAD630 /* DevTool6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02D68E5526190F2000CAD630 /* DevTool6.cpp */; };
-		02D68E5B261932CE00CAD630 /* Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02D68E5A261932CD00CAD630 /* Tests.cpp */; };
 		02DC23F526162C5900749583 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DC23F426162C5900749583 /* main.cpp */; };
 		02DC24352616370100749583 /* DevTool5.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02DC24342616370100749583 /* DevTool5.cpp */; };
 		02F8D3402619656100316E0A /* Project.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 02F8D33E2619656100316E0A /* Project.cpp */; };
@@ -35,6 +34,7 @@
 /* Begin PBXFileReference section */
 		0284FEFE26234ECF00AB125E /* DevTool7.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DevTool7.cpp; sourceTree = "<group>"; };
 		0284FEFF26234ECF00AB125E /* DevTool7.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DevTool7.hpp; sourceTree = "<group>"; };
+		02B190A6262E0AEB00A410BD /* httplib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = httplib.h; sourceTree = "<group>"; };
 		02D68E3F26169ABC00CAD630 /* DevTool0.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DevTool0.cpp; sourceTree = "<group>"; };
 		02D68E4026169ABC00CAD630 /* DevTool0.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DevTool0.hpp; sourceTree = "<group>"; };
 		02D68E452618F1F300CAD630 /* DevTool2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DevTool2.cpp; sourceTree = "<group>"; };
@@ -47,7 +47,6 @@
 		02D68E5226190F0900CAD630 /* DevTool4.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DevTool4.hpp; sourceTree = "<group>"; };
 		02D68E5526190F2000CAD630 /* DevTool6.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DevTool6.cpp; sourceTree = "<group>"; };
 		02D68E5626190F2000CAD630 /* DevTool6.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DevTool6.hpp; sourceTree = "<group>"; };
-		02D68E5A261932CD00CAD630 /* Tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tests.cpp; sourceTree = "<group>"; };
 		02DC23F126162C5900749583 /* LazyDevelopersToolkit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LazyDevelopersToolkit; sourceTree = BUILT_PRODUCTS_DIR; };
 		02DC23F426162C5900749583 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		02DC2433261636F800749583 /* DevTool5.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DevTool5.hpp; sourceTree = "<group>"; };
@@ -95,17 +94,17 @@
 				02D68E452618F1F300CAD630 /* DevTool2.cpp */,
 				02D68E4E26190EF200CAD630 /* DevTool3.hpp */,
 				02D68E4D26190EF200CAD630 /* DevTool3.cpp */,
+				02F8D33F2619656100316E0A /* Project.hpp */,
+				02F8D33E2619656100316E0A /* Project.cpp */,
 				02D68E5226190F0900CAD630 /* DevTool4.hpp */,
 				02D68E5126190F0900CAD630 /* DevTool4.cpp */,
 				02DC2433261636F800749583 /* DevTool5.hpp */,
 				02DC24342616370100749583 /* DevTool5.cpp */,
 				02D68E5626190F2000CAD630 /* DevTool6.hpp */,
 				02D68E5526190F2000CAD630 /* DevTool6.cpp */,
-				02D68E5A261932CD00CAD630 /* Tests.cpp */,
-				02F8D33E2619656100316E0A /* Project.cpp */,
-				02F8D33F2619656100316E0A /* Project.hpp */,
 				0284FEFE26234ECF00AB125E /* DevTool7.cpp */,
 				0284FEFF26234ECF00AB125E /* DevTool7.hpp */,
+				02B190A6262E0AEB00A410BD /* httplib.h */,
 			);
 			path = LazyDevelopersToolkit;
 			sourceTree = "<group>";
@@ -173,7 +172,6 @@
 				02DC23F526162C5900749583 /* main.cpp in Sources */,
 				02DC24352616370100749583 /* DevTool5.cpp in Sources */,
 				02D68E4126169ABC00CAD630 /* DevTool0.cpp in Sources */,
-				02D68E5B261932CE00CAD630 /* Tests.cpp in Sources */,
 				02D68E4B26190EDE00CAD630 /* DevTool1.cpp in Sources */,
 				02D68E4F26190EF200CAD630 /* DevTool3.cpp in Sources */,
 				0284FF0026234ECF00AB125E /* DevTool7.cpp in Sources */,

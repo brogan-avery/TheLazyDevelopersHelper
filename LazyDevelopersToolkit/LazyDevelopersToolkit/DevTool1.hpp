@@ -1,10 +1,7 @@
 /**************************************************************
 * File Title: Dev Tool 1 Class Header
 * Author: Brogan Avery
-* Created :
- 
- 
-* File Description : 
+* Created :  2021-04-01
 ***************************************************************/
 
 #ifndef DevTool1_hpp
@@ -25,6 +22,7 @@ class DevTool1:virtual public DevTool0{
         DevTool1(); ///constructor
         void menu1();
         void displayProblems();
+        void openUrl(string);
 };
 
 #endif /* DevTool1_hpp */

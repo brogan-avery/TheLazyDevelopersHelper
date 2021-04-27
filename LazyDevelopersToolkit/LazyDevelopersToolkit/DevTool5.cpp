@@ -1,20 +1,18 @@
 /**************************************************************
 * File Title: Dev Tool 5 Class Body
 * Author: Brogan Avery
-* Created :
- 
- 
-* File Description :
+* Created : 2021-04-01
+* File Description : this class lets user do a variety of things such as listen to relaxing music, play games, etc. to take a break from coding.
 ***************************************************************/
 
 #include "DevTool5.hpp"
 
-
 DevTool5::DevTool5(){} ///constructor
 
+/// simple main menu navigation function
 void DevTool5::menu5(){
     string userInput = " ";
-    cout << "\n* Relaxation Management * " << endl;
+    cout << "\n* Relaxation Management - Take a Break * " << endl;
     
     while (userInput != "5") {
         cout << "  Select number " << endl;
@@ -25,7 +23,8 @@ void DevTool5::menu5(){
         cout << "     5. Return To Developer Tools Dashboard" << endl;
 
         cout << "  Enter Selection: " << endl;
-        cin >> userInput;
+        
+        getline(cin, userInput);
 
         if (userInput == "1"){
             listSongs();
@@ -46,11 +45,12 @@ void DevTool5::menu5(){
     cout << "Going back to Dashboard..." << endl;
 }
 
-
+/// function lets user choose a relaxing song to play
 void DevTool5::listSongs(){
     string userInput = " ";
     cout << "\n* SONG LIST * " << endl;
     
+    /// You will have to manually stop song in Itunes or what ever music player  if you do not want to listen to the whole song
     while (userInput != "7") {
         cout << "  Select number associated with the song you want to play" << endl;
         cout << "     1. Chill Techno " << endl;
@@ -62,8 +62,10 @@ void DevTool5::listSongs(){
         cout << "     7. Return To Previous Menu" << endl;
 
         cout << "  Enter Selection: " << endl;
-        cin >> userInput;
-
+        
+        getline(cin, userInput);
+        
+/// uses command line system command to open and play a mp4 or wav file associated with the song the user selected
         if (userInput == "1"){
             if (system(NULL)) puts ("Starting Music ...\n");
             else exit (EXIT_FAILURE);
@@ -103,6 +105,7 @@ void DevTool5::listSongs(){
     cout << "Going back to Previous Menu..." << endl;
 }
 
+/// this tool lets users open a web page to look at baby animals of their choice
 void DevTool5::listAnimals(){
     string userInput = " ";
     cout << "\n* BABY ANIMAL LIST * " << endl;
@@ -115,8 +118,10 @@ void DevTool5::listAnimals(){
         cout << "     4. Return To Previous Menu" << endl;
 
         cout << "  Enter Selection: " << endl;
-        cin >> userInput;
+        
+        getline(cin, userInput);
 
+/// uses command line system command to open specified URL
         if (userInput == "1"){
             if (system(NULL)) puts ("Opening Web Page ...\n");
             else exit (EXIT_FAILURE);
@@ -138,10 +143,12 @@ void DevTool5::listAnimals(){
     cout << "Going back to Previous Menu..." << endl;
 }
 
+/// this function tells the user a random joke from a file
 void DevTool5::tellJoke(){
     int randomLineNum = rand();
     srand(time(0));
     
+    /// gets a random line from the file of jokes and answers
     int lineCount = getFileLineCount("Jokes.txt");
     randomLineNum = rand() % lineCount;
     
@@ -151,12 +158,13 @@ void DevTool5::tellJoke(){
     
     vector<string> lines = readFile("Jokes.txt");
     
+    /// calls Dev 0 tool to read the text in a file, pauses for user to think of response
     textToSpeech(lines[randomLineNum]);
     sleep(2);
     textToSpeech(lines[randomLineNum + 1]);
-    
 }
 
+/// lets user choose a simple game to play, play till you win or you must restart the program. There are no losers here!!!
 void DevTool5::listGames(){
     string userInput = " ";
     cout << "\n* GAME LIST * " << endl;
@@ -168,7 +176,8 @@ void DevTool5::listGames(){
         cout << "     3. Return To Previous Menu" << endl;
 
         cout << "  Enter Selection: " << endl;
-        cin >> userInput;
+        
+        getline(cin, userInput);
 
         if (userInput == "1"){
             playHangman();
@@ -181,6 +190,7 @@ void DevTool5::listGames(){
     cout << "Going back to Previous Menu..." << endl;
 }
 
+/// this is a modified simple version of the game
 void DevTool5::playHangman(){
     string userInput = " ";
     string wordToGuess = " ";
@@ -195,14 +205,14 @@ void DevTool5::playHangman(){
     array<string, ARR_SIZE> colors = {"purple", "brown", "lime", "green", "white", "mauve", "cyan", "rose", "yellow", "indigo"};
     array<string, ARR_SIZE> food = {"pasta", "pizza", "carrot", "grapes", "honey", "sugar", "cheese", "tofu", "tomato", "potato"};
     
-    // gets the index of a random array pos
+    /// gets the index of a random array pos to use as the location to get the random word from
     int randomWord = rand();
     srand(time(0));
     randomWord = rand() % ARR_SIZE;
     
     cout << "\n* Hangman * " << endl;
     
-    // user selects category of word and then a random word is selected
+    /// user selects category of word based on the three arrays animals, food, or colors and then a random word is selected
     while (userInput != "4") {
         cout << "  Select number associated with the category of words" << endl;
         cout << "     1. Animals " << endl;
@@ -211,7 +221,8 @@ void DevTool5::playHangman(){
         cout << "     4. Return To Previous Menu" << endl;
 
         cout << "  Enter Selection: " << endl;
-        cin >> userInput;
+        
+        getline(cin, userInput);
 
         if (userInput == "1"){
             wordToGuess = animals[randomWord];
@@ -227,20 +238,22 @@ void DevTool5::playHangman(){
             break;
         }
         
-        wordLength = wordToGuess.length();
+        wordLength = wordToGuess.length(); ///number of letters in the word
         
-        
+        /// draw blanks for each letter of the word
         for (int i = 0; i< wordLength;i++){
             blankString.append("_");
         }
         
         cout << "The word has " << wordLength << " letters" << endl;
         
+        /// get input guess until the full word has been guessed
         while (wordCompleted == false){
             cout << blankString << endl;
             cout << "\nEnter a letter guess: ";
             cin >> letter;
             
+            /// all blanks must be replaced with a letter
             currentState = blankString;
             for (int i = 0; i < wordLength; i++){
                 if (letter == wordToGuess[i]){
@@ -256,6 +269,7 @@ void DevTool5::playHangman(){
                 cout << "You found a letter\n" << endl;
             }
             
+            /// keep going until there are no blanks
             blankCount = wordLength;
             for (int i = 0; i < wordLength; i++){
                 if (blankString[i] != '_'){
@@ -274,7 +288,7 @@ void DevTool5::playHangman(){
     cout << "Going back to Previous Menu..." << endl;
 }
     
-
+/// this is a modified simple version of the game
 void DevTool5::playCandyLand(){ /// I totally cannot remember how to play this game so its VERY loosely based on the real game 
     const int NUM_SPACES = 60; /// num spaces on game board
     const int NUM_COLORS = 6;
@@ -282,9 +296,10 @@ void DevTool5::playCandyLand(){ /// I totally cannot remember how to play this g
     string card = " ";
     int numMoves = 0;
     
-    array<string, NUM_COLORS> cards = {"red", "purple", "yellow", "blue", "orange", "green"}; /// path color pattern pf game board
+    /// path color pattern of the game board
+    array<string, NUM_COLORS> cards = {"red", "purple", "yellow", "blue", "orange", "green"};
     
-    // struct for each square on the game board
+    /// struct for each square on the game board
     struct Spot{
         string color;
         bool youAreHere;
@@ -292,7 +307,7 @@ void DevTool5::playCandyLand(){ /// I totally cannot remember how to play this g
         string you = "You are here";
     };
     
-    // add the colors in the pattern to the squares of the board
+    /// add the colors in the pattern to the squares of the board
     array<Spot, NUM_SPACES> board;
     for (int i = 0; i < board.size(); i+=6){
         board[i].color = "red";
@@ -303,7 +318,7 @@ void DevTool5::playCandyLand(){ /// I totally cannot remember how to play this g
         board[i+5].color = "green";
     }
     
-    // add the hazards and your character to the game board
+    /// add the hazards and your character to the game board
     for (int i = 0; i < board.size(); i++){
         board[i].youAreHere = false;
         
@@ -330,18 +345,18 @@ void DevTool5::playCandyLand(){ /// I totally cannot remember how to play this g
         }
     }
     
-    //starting place
+    /// starting place
     int yourPos = 0;
     string onColor = board[yourPos].color;
     
-    // start game
+    /// start game
     cout << " * CandyLand *\n" << endl;
     
     while (gameOver != true){
         string userInput = " ";
         cout << "Game Board: " << endl;
         
-        //display current board layout
+        ///display current board layout
         for (int i = 0; i < board.size(); i++){
             if (yourPos == i){
                 board[i].you = "You are here";
@@ -353,10 +368,11 @@ void DevTool5::playCandyLand(){ /// I totally cannot remember how to play this g
         }
         sleep(2);
 
-        // draw card
+        /// draw card
         while (userInput != "D" ){
             cout << "\nTo draw card, enter 'D', to quit game, enter 'Q' " << endl;
-            cin >> userInput;
+            
+            getline(cin, userInput);
             
             if (userInput == "Q"){
                 break;
@@ -371,7 +387,7 @@ void DevTool5::playCandyLand(){ /// I totally cannot remember how to play this g
         cout << "\nYou drew a " << card << " card. Move to the next " << card << " square on the game board.\n" << endl;
         sleep(2);
         
-        // uses the cards(card color) array pattern to get the distance between two colors
+        /// uses the cards(card color) array pattern to get the distance between two colors
         int posA; ///where you are
         int posB; /// where you go
         for (int i = 0; i < cards.size(); i++){
@@ -383,8 +399,8 @@ void DevTool5::playCandyLand(){ /// I totally cannot remember how to play this g
             }
         }
         
-        // updates your position
-        posA++; /// can't do math with 0s and the distance is the only number that matters
+        /// updates your position
+        posA++; /// can't do math with 0s and the distance is the only number that matters, so theses are both increase by one with out having it change the result
         posB++;
         numMoves = 0;
         numMoves = numMoves + (posB - posA); /// how many spots to move forward
@@ -400,7 +416,7 @@ void DevTool5::playCandyLand(){ /// I totally cannot remember how to play this g
         cout << numMoves << "    " << yourPos << endl;
         onColor = board[yourPos].color;
         
-        //handles landing on a spot with a hazard
+        /// handles landing on a spot with a hazard
         if (board[yourPos].hazard != " "){
             cout << " OH NO. YOU RAN INTO A HAZARD.\n" << endl;
             sleep(1);
@@ -426,7 +442,7 @@ void DevTool5::playCandyLand(){ /// I totally cannot remember how to play this g
             }
         }
         
-        // check for end of game
+        /// check for end of game
         if (yourPos >= NUM_SPACES){
             gameOver = true;
         }
@@ -435,10 +451,11 @@ void DevTool5::playCandyLand(){ /// I totally cannot remember how to play this g
     cout << "You finished the game!" << endl;
 }
 
-string DevTool5::drawCard(){ /// helper function of Candy Land
+/// helper function of Candy Land to draw a random card with a random color based off of a random number
+string DevTool5::drawCard(){
     const int NUM_COLORS = 6;
    
-    // gets the index of a random array pos to draw a random card color
+    /// gets the index of a random array pos to draw a random card color
     int randomColor = rand();
     srand(time(0));
     randomColor = rand() % NUM_COLORS;
@@ -466,6 +483,5 @@ string DevTool5::drawCard(){ /// helper function of Candy Land
     if (randomColor == 5){
         return "green";
     }
-    
     return " ";
 }

@@ -1,17 +1,15 @@
 /**************************************************************
 * File Title: Dev Tool 6 Class Body
 * Author: Brogan Avery
-* Created :
- 
- 
-* File Description :
+* Created : 2021-04-01
+* File Description : this class lets the user open or view the contents of various resources such as files for documentation, help, etc.
 ***************************************************************/
 
 #include "DevTool6.hpp"
 
-
 DevTool6::DevTool6(){} ///constructor
 
+/// simple main menu navigation function
 void DevTool6::menu6(){
     string userInput = " ";
     cout << "\n* Other Resources * " << endl;
@@ -24,7 +22,8 @@ void DevTool6::menu6(){
         cout << "     4. Return To Developer Tools Dashboard" << endl;
 
         cout << "  Enter Selection: " << endl;
-        cin >> userInput;
+        
+        getline(cin, userInput);
 
         if (userInput == "1"){
             displayDictionary();
@@ -41,27 +40,26 @@ void DevTool6::menu6(){
     cout << "Going back to Dashboard..." << endl;
 }
 
+/// function that displays all terms and definitions in the Dev Tool Custom Dictionary
 void DevTool6::displayDictionary(){
     cout << "All Dictionary Terms\n" << endl;
-    vector<string> lines = readFile("Dictionary.csv");
+    vector<string> lines = readFile("Dictionary.txt");
     
-    for (auto line : lines){
-        for (int i = 0; i < line.length(); i++){
-            if (line[i] == ','){
-                line.replace(i,1,": \n   ");
-            }
-        }
-        
-        cout << line << endl;
+    /// formats lines of file for output
+    for (int i = 0, j = 1; i< lines.size(); i+=2, j+=2){
+        cout << lines[i] << ":" << endl;
+        cout << "    " << lines[j] << endl;
         cout << "----------------\n"<< endl;
     }
     
 }
 
+/// function that websites in the Dev Tool Saved Web Links
 void DevTool6::displayWebLinks(){
     cout << "All Web Links\n" << endl;
     vector<string> lines = readFile("WebLinks.csv");
     
+    /// formats lines of file for output
     for (auto line : lines){
         for (int i = 0; i < line.length(); i++){
             if (line[i] == ','){
@@ -74,6 +72,11 @@ void DevTool6::displayWebLinks(){
     }
 }
 
+/// a function that opens a file that has more detailed information for the user on how to use this product or specific parts of it
 void DevTool6::openDocumentation(){
-    
+    system ("open /Users/brogan/Library/Developer/Xcode/DerivedData/LazyDevelopersToolkit-eizgswzshjlxxvebouikjvtdbczc/Build/Products/Debug/LazyDeveloperUserManual.docx");
 }
+
+
+
+   

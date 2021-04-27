@@ -1,16 +1,14 @@
 /**************************************************************
 * File Title: Dev Tool 0 Class Header
 * Author: Brogan Avery
-* Created :
- 
- 
-* File Description :
+* Created : 2021-04-01
 ***************************************************************/
 
 #ifndef DevTool0_hpp
 #define DevTool0_hpp
 
 #include <stdio.h>
+#include <map>
 #include <string>
 #include <iostream>
 #include <vector>
@@ -22,19 +20,16 @@ using namespace std;
 class DevTool0{
     public:
         DevTool0(); ///constructor
-        ofstream createFile(string); ///string fileName
-        void createClassHeaderFile(string); /// string fileName
-        string capitalizeWord(string); /// string word to capitalize
-        void appendLineToEOF(string, string); /// string fileName
-        void closeFile(string); ///string fileName
-        int getFileLineCount(string); ///string fileName
-        vector <string> readFile(string); ///string fileName
-        void addDefinition(string, string); ///string term, string definition
-        string lookUp(string);
-        void addWebLink(string, string); ///string webpage title/ description, string link
-        void openWebPage(string); /// string url
-        void textToSpeech(string); /// string text
-        
+        ofstream createFile(string);
+        void createClassHeaderFile(string);
+        string capitalizeWord(string);
+        void appendLineToEOF(string, string);
+        int getFileLineCount(string);
+        vector <string> readFile(string);
+        void addDefinition(string, string);
+        void lookUp(string);
+        void addWebLink(string, string);
+        void textToSpeech(string);
 };
 
 #endif /* DevTool0_hpp */
